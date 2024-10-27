@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="new_task.css">
+    
+    <link rel="stylesheet" href="toolbar.css">
+</head>
+<body>
+    <header >
+        <div class="toolbar">
+            <a href="/my_tasks" class="toolbar_button">Мои задачи   </a>
+            <a href="/new_task" class="toolbar_button">Новая задача</a>
+            <a href="/account" class="toolbar_button">Аккаунт</a>
+            <a href="/logout" class="toolbar_button_exit">Выход</a>
+        </div>
+    </header>
+    <form method="post">
+        <div class="title_container">
+            <label for="title">Название задачи:</label>
+            <input class="title" id="title" type="text">
+        </div>
+
+        <div class="tasks_category">
+            <label for="category"> Категория задачи:</label>
+            <select id="category" name="category">
+                <option value="priority">Приоритетные</option>
+                <option value="default">Обычные</option>
+                <option value="another">Другие</option>
+            </select>
+
+        </div>
+        <div class="deadlines">
+            <div class="time">
+                <label for="start_time">Начало:</label>
+                <input type="datetime" class="start_time" id="start_time">
+            </div>
+            <div class="time">
+                <label for="end_time">Конец:</label>
+                <input type="datetime" class="end_time" id="end_time">
+            </div>
+        </div>
+        
+        <div class="is_periodic">
+            <label for="periodic">Периодическая</label>
+            <input type="checkbox" id="periodic">
+        </div>
+        
+
+        <div id="periodic_container"  hidden="true">
+            <div id="period_container">Повторять раз в <input type="number" id="period" value="1" > <i class="period_days">день</i>.</div>
+            <div id="duration_container">Срок выполнения: <input type="number" id="duration" value="1" > <i class="duration_days">день</i>.</div>
+        </div>
+
+        
+        <div class="description_container">
+            <label for="description">Описание задачи:</label>
+            <input class="description" id="description" type="text">
+        </div>
+
+        <input class="submit" type="submit" value="Добавить">
+    </form>
+    <script src="new_task.js"></script>
+</body>
+</html>
