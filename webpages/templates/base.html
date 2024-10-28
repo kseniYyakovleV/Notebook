@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
+{% load static %}
 <head>
-    <link rel="stylesheet" href="account_toolbar.css">
+    <link rel="stylesheet" href="{% static notebook/css/base.html %}">
 </head>
 <body>
     <header>
@@ -12,5 +13,8 @@
             <a href="/logout" class="logout">Выйти</a>
         </div>
     </header>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
 </body>
 </html>

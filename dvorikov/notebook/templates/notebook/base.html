@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static "notebook/css/base.css" %}">
+</head>
+<body>
+    <header>
+        <div class="first_layer">
+            <a href="/notebook/my_tasks"  class="my_tasks">Мои задачи</a>
+            <a href="/notebook/new_task" class="new_task">Новая задача</a>
+            <a href="/notebook/account" class="account">Аккаунт</a>
+            <a href="/notebook/logout" class="logout">Выйти</a>
+        </div>
+    </header>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
