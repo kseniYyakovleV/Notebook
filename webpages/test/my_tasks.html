@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "my_tasks.css"></style> 
+    <title>Ahead task</title>
+</head>
+<body>
+    <div id="filter_button">Фильтр</div>
+    <div class="menu" id="menu" style="display: none;">
+        <table class="filters">
+            <tr>
+                <td class="ahead_task"><div class="new_marker_box"><div class="marker"></div></div></td>
+                <td><label for="ahead_tasks_checkbox">Предстоящие задачи</label></td>
+                <td><input type="checkbox" id="ahead_tasks_checkbox" checked="checked"></td>
+            </tr>
+            <tr>
+                <td class="current_task"><div class="marker"></div></td>
+                <td><label for="current_tasks_checkbox">Текущие задачи</label></td>
+                <td><input type="checkbox" id="current_tasks_checkbox" checked="checked"></td>
+            </tr>
+            <tr>
+                <td class="failed_task"><div class="marker"></div></td>
+                <td><label for="failed_tasks_checkbox">Просроченные задачи</label></td>
+                <td><input type="checkbox" id="failed_tasks_checkbox" checked="checked"></td>
+            </tr>
+            <tr>
+                <td class="complited_task"><div class="marker"></div></td>
+                <td><label for="complited_tasks_checkbox">Выполненные задачи</label></td>
+                <td><input type="checkbox" id="complited_tasks_checkbox"></td>
+            </tr>
+        </table>
+        <div class="find">
+            <input type="text" class="find_input" id="find_input">
+            <img src="delete.jpg" alt="Стереть" class="clear_icon" id="clear_icon" style="display: none;">
+        </div>
+    </div>
+    
+
+    <div class="tasks" id="tasks">
+        <div class="ahead_task">
+            <div class="text_information">
+                <div class="title">Предстоящая задача</div>
+                <div class="deadlines">
+                    <div class="urgency">Важная</div>
+                    <div class="time_label">Начало: </div>
+                    <div class="time">11.12.2923 23:33</div>
+                </div>
+            </div>
+            <div class="marker_box">
+                <div class="marker_middle_box">
+                    <div class="marker"></div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="current_task">
+            <div class="text_information">
+                <div class="title">Текущая задача</div>
+                <div class="deadlines">
+                    <div class="urgency">Обычная</div>
+                    <div class="time_label">Конец: </div>
+                    <div class="time">11.12.2923 23:33</div>
+                </div>
+            </div>
+            <div class="marker_box">
+                <div class="marker_middle_box">
+                    <div class="marker"></div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="failed_task">
+            <div class="text_information">
+                <div class="title">{{ Просроченная задача }}</div>
+                <div class="deadlines">
+                    <div class="urgency">Обычная</div>
+                    <div class="time_label">{{ Конец: }}</div>
+                    <div class="time">{{ 11.12.2923 23:33 }}</div>
+                </div>
+            </div>
+            <div class="marker_box">
+                <div class="marker_middle_box">
+                    <div class="marker"></div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="complited_task">
+            <div class="text_information">
+                <div class="title">Выполненная задача</div>
+                <div class="deadlines">
+                    <div class="urgency">Важная</div>
+                    <div class="time_label">Конец:</div>
+                    <div class="time">11.12.2923 23:33</div>
+                </div>
+            </div>
+            <div class="marker_box">
+                <div class="marker_middle_box">
+                    <div class="marker"></div>
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="ahead_task">
+            <div class="text_information">
+                <div class="title">Предстоящая задача</div>
+                <div class="deadlines">
+                    <div class="urgency">Важная</div>
+                    <div class="time_label">Начало: </div>
+                    <div class="time">11.12.2923 23:33</div>
+                </div>
+            </div>
+            <div class="marker_box">
+                <div class="marker_middle_box">
+                    <div class="marker"></div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="current_task">
+            <div class="text_information">
+                <div class="title">Текущая задача</div>
+                <div class="deadlines">
+                    <div class="urgency">Обычная</div>
+                    <div class="time_label">Конец: </div>
+                    <div class="time">11.12.2923 23:33</div>
+                </div>
+            </div>
+            <div class="marker_box">
+                <div class="marker_middle_box">
+                    <div class="marker"></div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="failed_task">
+            <div class="text_information">
+                <div class="title">{{ Просроченная задача }}</div>
+                <div class="deadlines">
+                    <div class="urgency">Обычная</div>
+                    <div class="time_label">{{ Конец: }}</div>
+                    <div class="time">{{ 11.12.2923 23:33 }}</div>
+                </div>
+            </div>
+            <div class="marker_box">
+                <div class="marker_middle_box">
+                    <div class="marker"></div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="complited_task">
+            <div class="text_information">
+                <div class="title">Выполненная задача</div>
+                <div class="deadlines">
+                    <div class="urgency">Важная</div>
+                    <div class="time_label">Конец:</div>
+                    <div class="time">11.12.2923 23:33</div>
+                </div>
+            </div>
+            <div class="marker_box">
+                <div class="marker_middle_box">
+                    <div class="marker"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="my_tasks.js"></script>
+</html>

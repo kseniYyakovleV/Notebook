@@ -1,0 +1,188 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2%;
+    border: 3px solid gray  ;
+    border-radius: 10px;
+    margin-bottom: 2%;
+}
+
+.new_marker_box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.find {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+.find_input {
+    font-size: 115%;
+    font-weight: bolder;
+    width: 100%;
+}
+
+.clear_icon {
+    width: inherit;
+    height: inherit;
+    scale: 0.8;
+}
+
+
+table {
+    width: 80%;
+}
+
+td.ahead_task {
+    width: min-content;
+    height: 100%;
+}
+
+td.current_task {
+    width: min-content
+}
+
+td.failed_task {
+    width: min-content;
+}
+
+td.complited_task {
+    width: min-content;
+}
+
+td label {
+    padding-left: 3%;
+}
+
+.ahead_task, .current_task, .failed_task, .complited_task {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3%;
+    padding: 1%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+div.ahead_task {
+    border: 3px, solid, rgba(0, 0, 255, 0.412);
+}
+
+div.current_task {
+    border: 3px, solid, rgb(25, 169, 25);
+}
+
+div.failed_task {
+    border: 3px, solid, red;
+}
+
+div.complited_task {
+    display: none;
+    border: 3px, solid, rgba(255, 255, 0, 0.523);
+}
+
+.text_information {
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    width: 100%;
+    font-weight: bolder;
+    overflow: hidden;
+    max-width: 100%;
+    margin-bottom: 3%;
+    font-size: 115%;
+}
+
+.ahead_task .title {
+    color: rgba(0, 0, 255, 0.412);
+}
+
+.current_task .title {
+    color: rgb(25, 169, 25);
+}
+
+.failed_task .title {
+    color: red;
+}
+
+.complited_task .title {
+    color:rgb(119, 255, 0)
+}
+
+.complited_task .deadlines {
+    color: rgba(128, 128, 128, 0.753) ;
+}
+
+.deadlines {
+    display: flex;
+    flex-direction: row;
+    font-size: 80%;
+}
+
+.urgency {
+    align-items: center;  
+    border-right: 10px solid rgba(255, 255, 0, 0);  
+}
+
+.ahead_task .urgency {
+    color: red;
+}
+
+.time_label {
+    align-items: center;  
+    border-right: 3px solid rgba(255, 255, 0, 0);  
+}
+
+.marker_box {
+    width: 30px;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.marker_middle_box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marker {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+}
+
+.ahead_task .marker {
+    width: 15px;
+    background-color: rgba(0, 0, 255, 0.412);
+}
+
+.current_task .marker {
+    background-color: rgb(25, 169, 25);
+}
+
+.failed_task .marker {
+    background-color: red;
+}
+
+.complited_task .marker {
+    background-color:  rgba(255, 255, 0, 0.36);
+}
+
