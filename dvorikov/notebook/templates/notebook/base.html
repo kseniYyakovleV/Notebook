@@ -7,11 +7,15 @@
 <body>
     <header>
         <div class="first_layer">
-            <a href="/notebook/my_tasks"  class="my_tasks">Мои задачи</a>
-            <a href="/notebook/new_task" class="new_task">Новая задача</a>
-            <a href="/notebook/account" class="account">Аккаунт</a>
-            <a href="/notebook/logout" class="logout">Выйти</a>
+            <a href="/notebook/my_tasks"  id="my_tasks" class="header_link">Мои задачи</a>
+            <a href="/notebook/new_task" id="new_task" class="header_link">Новая задача</a>
+            <a href="/notebook/account" id="account" class="header_link">Аккаунт</a>
+            <a href="/notebook/logout" id="logout" class="header_link">Выйти</a>
         </div>
+        <div class="second_layer">
+            {% block second_layer %} {% endblock %}
+        </div>
+        
     </header>
     <div class="content">
         {% block content %} {% endblock %}

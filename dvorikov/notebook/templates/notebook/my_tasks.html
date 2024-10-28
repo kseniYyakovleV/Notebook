@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href = "my_tasks.css"></style> 
-    <title>Ahead task</title>
-</head>
-<body>
-    <div id="filter_button">Фильтр</div>
+{% extends "notebook/base.html" %}
+{% load static %}
+
+{% block second_layer %}
+    <link rel="stylesheet" href = "{% static "notebook/css/my_tasks.css" %}">
+    <div id="filter_button">Фильтры и поиск</div>
+{% endblock %}
+
+{% block content %}
     <div class="menu" id="menu" style="display: none;">
         <table class="filters">
             <tr>
@@ -33,7 +32,7 @@
         </table>
         <div class="find">
             <input type="text" class="find_input" id="find_input">
-            <img src="delete.jpg" alt="Стереть" class="clear_icon" id="clear_icon" style="display: none;">
+            <img src="{% static "notebook/images/delete.jpg" %}" alt="Стереть" class="clear_icon" id="clear_icon" style="display: none;">
         </div>
     </div>
     
@@ -41,11 +40,11 @@
     <div class="tasks" id="tasks">
         <div class="ahead_task">
             <div class="text_information">
-                <div class="title">Предстоящая задача</div>
+                <div class="title">{{ title }}</div>
                 <div class="deadlines">
-                    <div class="important">Важная</div>
-                    <div class="time_label">Начало: </div>
-                    <div class="time">11.12.2923 23:33</div>
+                    <div class="{{ urgency_class }}">{{ urgency }}</div>
+                    <div class="time_label">{{ time_label}}: </div>
+                    <div class="time">{{ deadline }}</div>
                 </div>
             </div>
             <div class="marker_box">
@@ -56,7 +55,7 @@
         </div>
     
     
-        <div class="current_task">
+        <a  href=""><div class="current_task">
             <div class="text_information">
                 <div class="title">Текущая задача</div>
                 <div class="deadlines">
@@ -70,16 +69,16 @@
                     <div class="marker"></div>
                 </div>
             </div>
-        </div>
+        </div></a>
     
     
         <div class="failed_task">
             <div class="text_information">
-                <div class="title">{{ Просроченная задача }}</div>
+                <div class="title"> Просроченная задача </div>
                 <div class="deadlines">
                     <div class="dafault">Обычная</div>
-                    <div class="time_label">{{ Конец: }}</div>
-                    <div class="time">{{ 11.12.2923 23:33 }}</div>
+                    <div class="time_label"> Конец: </div>
+                    <div class="time">11.12.2923 23:33</div>
                 </div>
             </div>
             <div class="marker_box">
@@ -141,21 +140,7 @@
         </div>
     
     
-        <div class="failed_task">
-            <div class="text_information">
-                <div class="title">{{ Просроченная задача }}</div>
-                <div class="deadlines">
-                    <div class="default">Обычная</div>
-                    <div class="time_label">{{ Конец: }}</div>
-                    <div class="time">{{ 11.12.2923 23:33 }}</div>
-                </div>
-            </div>
-            <div class="marker_box">
-                <div class="marker_middle_box">
-                    <div class="marker"></div>
-                </div>
-            </div>
-        </div>
+
     
     
         <div class="complited_task">
@@ -174,6 +159,5 @@
             </div>
         </div>
     </div>
-</body>
-<script src="my_tasks.js"></script>
-</html>
+    <script src="{% static "notebook/js/my_tasks.js" %}"></script>
+{% endblock %}

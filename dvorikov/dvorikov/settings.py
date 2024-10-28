@@ -51,6 +51,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'dvorikov.urls'
+LOGIN_URL = "/notebook/login/"
 
 TEMPLATES = [
     {
