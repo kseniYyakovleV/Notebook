@@ -5,7 +5,7 @@ let filter_button = document.getElementById("filter_button");
 let ahead_tasks_checkbox = document.getElementById("ahead_tasks_checkbox");
 let current_tasks_checkbox = document.getElementById("current_tasks_checkbox");
 let failed_tasks_checkbox = document.getElementById("failed_tasks_checkbox");
-let complited_tasks_checkbox = document.getElementById("complited_tasks_checkbox");
+let completed_tasks_checkbox = document.getElementById("completed_tasks_checkbox");
 
 let tasks = document.getElementById("tasks");
 let menu = document.getElementById("menu");
@@ -45,10 +45,10 @@ function find_and_filter() {
     } else {
         visible_tasks.push("failed_task");
     }
-    if (!complited_tasks_checkbox.checked) {
-        hidden_tasks.push("complited_task");
+    if (!completed_tasks_checkbox.checked) {
+        hidden_tasks.push("completed_task");
     } else {
-        visible_tasks.push("complited_task");
+        visible_tasks.push("completed_task");
     }
 
 
@@ -56,6 +56,7 @@ function find_and_filter() {
         for (let j = 0; j < hidden_tasks.length; j++) {
             if (tasks_list[i].className === hidden_tasks[j]) {
                 tasks_list[i].style.display = 'none';
+                 
             }
         }
         for (let j = 0; j < visible_tasks.length; j++) {
@@ -83,7 +84,7 @@ failed_tasks_checkbox.addEventListener("change", e=>{
     find_and_filter();
 })
 
-complited_tasks_checkbox.addEventListener("change", e=>{
+completed_tasks_checkbox.addEventListener("change", e=>{
     find_and_filter();
 })
 
@@ -96,7 +97,3 @@ find_input.addEventListener("input", e=>{
     }
 })
 
-clear_icon.addEventListener("click", e=>{
-    find_input.value = "";
-    find_and_filter();
-})

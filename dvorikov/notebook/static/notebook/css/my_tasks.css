@@ -57,7 +57,7 @@ td.failed_task {
     width: min-content;
 }
 
-td.complited_task {
+td.completed_task {
     width: min-content;
 }
 
@@ -65,7 +65,7 @@ td label {
     padding-left: 3%;
 }
 
-.ahead_task, .current_task, .failed_task, .complited_task {
+.ahead_task, .current_task, .failed_task, .completed_task {
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -77,20 +77,19 @@ td label {
     padding-bottom: 3%;
 }
 
-div.ahead_task {
+a.ahead_task {
     border: 3px, solid, rgba(0, 0, 255, 0.412);
 }
 
-div.current_task {
+a.current_task {
     border: 3px, solid, rgb(25, 169, 25);
 }
 
-div.failed_task {
+a.failed_task {
     border: 3px, solid, red;
 }
 
-div.complited_task {
-    display: none;
+a.completed_task {
     border: 3px, solid, rgba(255, 255, 0, 0.523);
 }
 
@@ -121,11 +120,11 @@ div.complited_task {
     color: red;
 }
 
-.complited_task .title {
+.completed_task .title {
     color:rgb(119, 255, 0)
 }
 
-.complited_task .deadlines {
+.completed_task .deadlines {
     color: rgba(128, 128, 128, 0.753) !important;
 }
 
@@ -144,7 +143,7 @@ div.complited_task {
     color: red;
 }
 
-.complited_task .deadlines .important{
+.completed_task .deadlines .important{
     color: rgba(128, 128, 128, 0.753) !important;
 }
 
@@ -191,7 +190,7 @@ div.complited_task {
     background-color: red;
 }
 
-.complited_task .marker {
+.completed_task .marker {
     background-color:  rgba(255, 255, 0, 0.36);
 }
 

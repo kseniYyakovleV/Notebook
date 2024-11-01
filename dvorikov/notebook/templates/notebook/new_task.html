@@ -1,54 +1,16 @@
-{% extends "notebook/base.html" %}
+{% extends "notebook/one_task.html" %}
+
+
 {% load static %}
 
-{% block content %}
-    <link rel="stylesheet" href="{% static "notebook/css/new_task.css" %}">
-    <form method="post" action="/notebook/add_task/">
-        {% csrf_token %}
-        <div class="title_container">
-            <label for="title">Название задачи:</label>
-            <input class="title" id="title" type="text" name="title" maxlength="20">
-        </div>
-
-        <div class="tasks_category">
-            <label for="category"> Категория задачи:</label>
-            <select id="category" name="category">
-                <option value="default">Обычная</option>
-                <option value="priority">Важная</option>
-            </select>
-        </div>
-        <div class="deadlines">
-            <div class="time_box" id="start_container">
-                <label for="start_time">Начало:</label>
-                <input type="datetime-local" class="time" id="start_time" name="start_time">
-            </div>
-            <div class="time_box">
-                <label for="end_time">Конец:</label>
-                <input type="datetime-local" class="time" id="end_time" name="end_time">
-            </div>
-            <div class="error" id="interval_error" hidden>Разница между началом и концом должна быть не менее 1 дня.</div>
-        </div>
-        
-        <div class="is_periodic">
-            <label for="periodic">Периодическая</label>
-            <input type="checkbox" id="periodic" name="is_periodic">
-        </div>
-        
-
-        <div id="periodic_container"  hidden="true">
-            <div id="period_container">Повторять раз в <input type="number" id="period" value="1" name="period"> <i class="period_days">день</i>.</div>
-            <div id="duration_container">Срок выполнения: <input type="number" id="duration" value="1" name="duration"> <i class="duration_days">день</i>.</div>
-            <div id="period_error" class="error" hidden>Извините, но срок выполнения не может быть больше периода.</div>
-        </div>
+{% block styles %}
+<link rel="stylesheet" href="{% static "notebook/css/new_task.css" %}">
+{% endblock %}
 
 
-        <div class="description_container">
-            <label for="description">Описание задачи:</label>
-            <div>
-                <textarea id="description" rows="5"  name="description"> </textarea>
-            </div>
-        </div>
-        <input class="submit" type="submit" value="Добавить" >
-    </form>
-    <script src="{% static "notebook/js/new_task.js" %}"></script>
+{% block buttons %}
+<input class="submit" id="create_task_button" type="submit" value="Добавить" >
+{% endblock %}
+
+{% block scripts %}
 {% endblock %}

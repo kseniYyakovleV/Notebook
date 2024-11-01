@@ -1,0 +1,86 @@
+{% extends "notebook/base.html" %}
+{% load static %}
+
+{% block title %} <title>Аккаунт</title> {% endblock %}
+
+{% block styles %} 
+<link rel="stylesheet" href="{% static "notebook/css/account.css" %}">
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="window"><div class="forms">
+        <div class="forms_choosing" id="forms_choosing">
+            <div class="forms_choice" id="change_password_button">Сменить пароль</div>
+            <div class="forms_choice" id="change_username_button">Сменить логин</div>
+            <div class="forms_choice" id="delete_account_button">Удалить аккаунт</div>
+        </div>
+        <div>
+            <div {% if not password_successfully_chainged %} hidden {% endif %}>Пароль успешно изменен</div>
+            <div {% if not username_successfully_chainged %} hidden {% endif %}>Логин успешно изменен</div>
+        </div>
+    
+        <div class="forms_container" id="forms_container">
+            <form method="post" id="change_password_form" action="/notebook/change_password/" {% if form_name != "change_password" %} hidden {% endif %}>
+                {% csrf_token %}
+                <table id="change_password" class="change_password">
+                    <tr>
+                        <td><label for="old_password">Старый пароль</label></td>
+                        <td><input type="password" name="old_password" id="old_password"></td>
+                    </tr>
+                    <tr><td colspan="2"><div class="warning" id="old_password_warning" {% if not zero_length %} hidden {% endif %}>Пароль не может иметь нулевую длину.</div></td></tr>
+                    <tr><td colspan="2"><div class="warning" id="wrong_password_cp_warning" {% if not wrong_password_np %} hidden {% endif %}>Неправильный пароль</div></td></tr>
+                    <tr>
+                        <td><label for="new_password1">Новый пароль</label></td>
+                        <td><input type="password" name="new_password1" id="new_password1"></td>    
+                    </tr>
+                    <tr><td colspan="2" class="warning" id="new_password1_warning" {% if not too_short_new_password %} hidden {% endif %}><ul><li>Пароль должен содержать как минимум 8 символов.</li><li>Пароль не может состоять только из цифр.</li></ul></td></tr>
+                    <tr><td colspan="2"><div class="warning" id="old_password_warning" {% if not equal_passwords %} hidden {% endif %}>Новый пароль воспадает со старым.</div></td></tr>
+                    <tr>
+                        <td><label for="new_password2">Подтверждение пароля</label></td>
+                        <td><input type="password" name="new_password2" id="new_password2"></td>
+                        <tr><td colspan="2" class="warning" id="new_password2_warning" {% if not different_new_passwords %} hidden {% endif %} >Новые пароли должны совпадать.</td></tr>
+                    </tr>
+                    <tr><td colspan="2" ><div style="width: 100%; display: flex; flex-direction: row; justify-content: center;"><input type="submit" value="Сменить пароль"></div></td></tr>
+                </table>
+            </form>
+        
+            <form method="post" id="change_username_form" action="/notebook/change_username/"  {% if form_name != "change_username" %} hidden {% endif %}>
+                {% csrf_token %}
+                <table id="change_username" class="change_username">
+                    <tr>
+                        <td><label for="username">Новый логин</label></td>
+                        <td><input type="text" name="new_username" id="username" maxlength="20"></td>
+                    </tr>
+                    <tr><td colspan="2"><div class="warning" id="username_warning" {% if not wrong_login_format %} hidden {% endif %}>Не менее 1 и не более 20 символов. Только буквы и цифры.</div></td></tr>
+                    <tr>
+                        <td><label for="password_cu">Пароль</label></td>
+                        <td><input type="password" name="password" id="password_cu"></td>
+                        <tr><td colspan="2"><div class="warning" id="wrong_password_nu_warning" {% if not wrong_password_nu %} hidden {% endif %}>Неправильный пароль</div></td></tr>
+                    </tr>
+                    <tr><td colspan="2" ><div style="width: 100%; display: flex; flex-direction: row; justify-content: center;"><input type="submit" value="Сменить логин"></div></td></tr>
+                </table>
+            </form>
+        
+            
+            <form method="post" id="delete_account_form" action="/notebook/delete_account/"  {% if form_name != "delete_account" %} hidden {% endif %}>
+                {% csrf_token %}
+                <table id="delete_account" class="delete_account">
+                    <tr>
+                        <td><label for="password_da">Пароль</label></td>
+                        <td><input type="password" name="password" id="password_da"></td>
+                    </tr>
+                    <tr><td colspan="2"><div class="warning" id="wrong_password_da_warning" {% if not wrong_password_da %} hidden {% endif %}>Неправильный пароль</div></td></tr>
+                    <tr><td colspan="2" ><div style="width: 100%; display: flex; flex-direction: row; justify-content: center;"><input type="submit" value="Удалить аккаунт"></div></td></tr>
+                </table>
+            </form>
+        </div>
+    </div></div>
+    
+    
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static "notebook/js/account.js" %}"></script>
+{% endblock%}

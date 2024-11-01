@@ -25,9 +25,9 @@
                 <td><input type="checkbox" id="failed_tasks_checkbox" checked="checked"></td>
             </tr>
             <tr>
-                <td class="complited_task"><div class="marker"></div></td>
-                <td><label for="complited_tasks_checkbox">Выполненные задачи</label></td>
-                <td><input type="checkbox" id="complited_tasks_checkbox"></td>
+                <td class="completed_task"><div class="marker"></div></td>
+                <td><label for="completed_tasks_checkbox">Выполненные задачи</label></td>
+                <td><input type="checkbox" id="completed_tasks_checkbox" checked="checked"></td>
             </tr>
         </table>
         <div class="find">
@@ -38,81 +38,15 @@
     
 
     <div class="tasks" id="tasks">
-        <div class="ahead_task">
-            <div class="text_information">
-                <div class="title">{{ title }}</div>
-                <div class="deadlines">
-                    <div class="{{ urgency_class }}">{{ urgency }}</div>
-                    <div class="time_label">{{ time_label}}: </div>
-                    <div class="time">{{ deadline }}</div>
-                </div>
-            </div>
-            <div class="marker_box">
-                <div class="marker_middle_box">
-                    <div class="marker"></div>
-                </div>
-            </div>
-        </div>
-    
-    
-        <a  href=""><div class="current_task">
-            <div class="text_information">
-                <div class="title">Текущая задача</div>
-                <div class="deadlines">
-                    <div class="default">Обычная</div>
-                    <div class="time_label">Конец: </div>
-                    <div class="time">11.12.2923 23:33</div>
-                </div>
-            </div>
-            <div class="marker_box">
-                <div class="marker_middle_box">
-                    <div class="marker"></div>
-                </div>
-            </div>
-        </div></a>
-    
-    
-        <div class="failed_task">
-            <div class="text_information">
-                <div class="title"> Просроченная задача </div>
-                <div class="deadlines">
-                    <div class="dafault">Обычная</div>
-                    <div class="time_label"> Конец: </div>
-                    <div class="time">11.12.2923 23:33</div>
-                </div>
-            </div>
-            <div class="marker_box">
-                <div class="marker_middle_box">
-                    <div class="marker"></div>
-                </div>
-            </div>
-        </div>
-    
-    
-        <div class="complited_task">
-            <div class="text_information">
-                <div class="title">Выполненная задача</div>
-                <div class="deadlines">
-                    <div class="important">Важная</div>
-                    <div class="time_label">Конец:</div>
-                    <div class="time">11.12.2923 23:33</div>
-                </div>
-            </div>
-            <div class="marker_box">
-                <div class="marker_middle_box">
-                    <div class="marker"></div>
-                </div>
-            </div>
-        </div>
 
-    
-        <div class="ahead_task">
+        {% for task in tasks %}
+        <a class="{{ task.status }}_task" href="/notebook/task/{{ task.id }}">
             <div class="text_information">
-                <div class="title">Предстоящая задача</div>
+                <div class="title">{{ task.title }}</div>
                 <div class="deadlines">
-                    <div class="important">Важная</div>
-                    <div class="time_label">Начало: </div>
-                    <div class="time">11.12.2923 23:33</div>
+                    <div class="{{ task.category_class }}">{{ task.category }}</div>
+                    <div class="time_label">{{ task.time_label }}: </div>
+                    <div class="time">{{ task.deadline }}</div>
                 </div>
             </div>
             <div class="marker_box">
@@ -120,44 +54,9 @@
                     <div class="marker"></div>
                 </div>
             </div>
-        </div>
+        </a>
+        {% endfor %}
     
-    
-        <div class="current_task">
-            <div class="text_information">
-                <div class="title">Текущая задача</div>
-                <div class="deadlines">
-                    <div class="default">Обычная</div>
-                    <div class="time_label">Конец: </div>
-                    <div class="time">11.12.2923 23:33</div>
-                </div>
-            </div>
-            <div class="marker_box">
-                <div class="marker_middle_box">
-                    <div class="marker"></div>
-                </div>
-            </div>
-        </div>
-    
-    
-
-    
-    
-        <div class="complited_task">
-            <div class="text_information">
-                <div class="title">Выполненная задача</div>
-                <div class="deadlines">
-                    <div class="important">Важная</div>
-                    <div class="time_label">Конец:</div>
-                    <div class="time">11.12.2923 23:33</div>
-                </div>
-            </div>
-            <div class="marker_box">
-                <div class="marker_middle_box">
-                    <div class="marker"></div>
-                </div>
-            </div>
-        </div>
     </div>
     <script src="{% static "notebook/js/my_tasks.js" %}"></script>
 {% endblock %}

@@ -1,0 +1,61 @@
+{% extends "notebook/base.html" %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static "notebook/css/one_task.css" %}">
+    {% block styles %} {% endblock %}
+    <form method="post" id="forma">
+        {% csrf_token %}
+        <div class="title_container">
+            <label for="title">Название задачи:</label>
+            <input class="title" id="title" type="text" name="title" maxlength="40" {% if readonly %} disabled {% endif %} value="{{ task.title }}">
+            <div id="title_error" class="error" hidden>Название не может быть пустым или начинаться с цифры или знака.</div>
+        </div>
+
+        <div class="tasks_category">
+            <label for="category"> Категория задачи:</label>
+            <select id="category" name="category"  {% if readonly %} disabled {% endif %}>
+                <option value="d" {% if task.category == "d" %}  selected = "selected" {% endif %}>Обычная</option>
+                <option value="i" {% if task.category == "i" %}  selected = "selected" {% endif %}>Важная</option>
+            </select>
+        </div>
+        <div class="deadlines">
+            <div class="time_box" id="start_container">
+                <label for="start_time">Начало:</label>
+                <input type="datetime-local" class="time" id="start_time" name="start_time" {% if readonly %} disabled {% endif %} value="{{ task.start_datetime }}">
+            </div>
+            <div class="time_box">
+                <label for="end_time">Конец:</label>
+                <input type="datetime-local" class="time" id="end_time" name="end_time" {% if readonly %} disabled {% endif %} value="{{ task.end_datetime }}">
+            </div>
+            <div class="error" id="interval_error" hidden>Время начала не может превосходить время конца.</div>
+            <div id="date_format_error" class="error" hidden>Дата не может быть пустой.</div>
+        </div>
+        
+        <div class="is_periodic">
+            <label for="periodic">Периодическая</label>
+            <input type="checkbox" id="periodic" name="is_periodic" value="on" {% if readonly %} disabled {% endif %} {% if task.is_periodic %} checked {% endif %}>
+        </div>
+        
+
+        <div id="periodic_container"  {% if not task.is_periodic %} hidden {% endif %}>
+            <div id="period_container">Повторять раз в <input type="number" id="period" name="period" value="{{ period_duration }}" {% if readonly %} disabled {% endif %} > <i class="period_days">день</i>.</div>
+            <div id="duration_container">Срок выполнения: <input type="number" id="duration" name="duration" value="{{ execution_duration }}" {% if readonly %} disabled {% endif %}> <i class="duration_days">день</i>.</div>
+            <div id="period_error" class="error" hidden>Период повтора не может превосходить длительность выполнения.</div>
+            <div id="type_error" class="error" hidden> Значения могут быть только целыми положительными числами.</div>
+        </div>
+
+
+        <div class="description_container">
+            <label for="description">Описание задачи:</label>
+            <div>
+                <textarea id="description" rows="5"  name="description" {% if readonly %} disabled {% endif %}> </textarea>
+            </div>
+        </div>
+        {% block buttons %}
+        {% endblock %}
+    </form>
+    <script src="{% static "notebook/js/one_task.js" %}"></script>
+    {% block scripts %}
+    {% endblock %}
+{% endblock %}

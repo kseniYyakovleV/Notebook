@@ -1,0 +1,36 @@
+{% extends "notebook/one_task.html" %}
+{% load static %}
+
+{% block title %}
+<title>{{ task.title }}</title>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href = "{% static "notebook/css/periodic_task.css" %}">
+{% endblock %}
+
+{% block buttons %}
+
+<button id="complete_button" type="button" {% if status == "completed" or status == "ahead" %}hidden{% endif%}>Выполнено</button>
+<button id="not_complete_button" type="button" {% if status != "completed" or status == "completed" and task.is_periodic %} hidden {% endif%}>Не выполнено</button>
+<button id="change_button" type="button">Редактировать</button>
+<button id="save_changes_button" type="button" hidden>Сохранить изменения</button>
+<button id="cansel_button" type="button" hidden>Отмена</button>
+<button id="delete_button" type="button">Удалить</button>
+{% endblock %}
+
+{% block scripts %} 
+    <script src="{% static "notebook/js/one_task.js" %}"></script>
+    {% if status == "current" or status == "failed" %}
+        <script src="{% static "notebook/js/current_failed_task.js" %}"></script>
+    {% elif status == "completed" %}
+        <script src="{% static "notebook/js/completed_task.js" %}"></script>
+    {% elif status == "ahead" %}
+        <script src="{% static "notebook/js/ahead_task.js" %}"></script>
+    {% endif %}
+{% endblock %}
+
+
+
+
+

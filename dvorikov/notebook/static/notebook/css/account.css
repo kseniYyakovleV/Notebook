@@ -1,0 +1,30 @@
+.window {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.forms {
+    width: 50%;
+}
+
+.warning {
+    text-align: center;
+}
+
+.forms_choosing {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+.forms_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}

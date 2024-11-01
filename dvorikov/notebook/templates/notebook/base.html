@@ -3,6 +3,8 @@
 {% load static %}
 <head>
     <link rel="stylesheet" href="{% static "notebook/css/base.css" %}">
+    {% block styles %} {% endblock %}
+    {% block title %} <title>Notebook</title> {% endblock %}
 </head>
 <body>
     <header>
@@ -22,3 +24,6 @@
     </div>
 </body>
 </html>
+
+{% block scripts %}
+{% endblock %}
