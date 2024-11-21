@@ -25,18 +25,33 @@ change_password_button.addEventListener("click", e=>{
     change_password_form.hidden = false;
     change_username_form.hidden = true;
     delete_account_form.hidden = true;
+    password_successfully_changed.hidden = true;
+    username_successfully_chainged.hidden = true;
+    change_password_button.className = "choisen_button";
+    change_username_button.className = "forms_choice";
+    delete_account_form.className = "forms_choice";
 })
 
 change_username_button.addEventListener("click", e=>{
     change_password_form.hidden = true;
     change_username_form.hidden = false;
     delete_account_form.hidden = true;
+    password_successfully_changed.hidden = true;
+    username_successfully_chainged.hidden = true;
+    change_password_button.className = "forms_choice";
+    change_username_button.className = "choisen_button";
+    delete_account_form.className = "forms_choice";
 })
 
 delete_account_button.addEventListener("click", e=>{
     change_password_form.hidden = true;
     change_username_form.hidden = true;
     delete_account_form.hidden = false;
+    password_successfully_changed.hidden = true;
+    username_successfully_chainged.hidden = true;
+    change_password_button.className = "forms_choice";
+    change_username_button.className = "forms_choice";
+    delete_account_form.className = "choisen_button";
 })
 
 function old_password_is_valid() {
@@ -69,14 +84,13 @@ function new_password2_is_valid() {
 
 function new_username_is_valid() {
     let value = username.value;
-    if (value.length == 0) {
+    if (value.length < 5 | value.length > 40) {
         return false;
     }
-    for (let index = 0; index < value.length; index++) {
-        if (value[index].match("[a-zA-Z0-9]") == null) {
-            return false;
-        }
+    else if (value[0] == ' ') {
+        return false;
     }
+
     return true;
 }
 

@@ -22,7 +22,7 @@
         </div>
     
         <div class="forms_container" id="forms_container">
-            <form method="post" id="change_password_form" action="/notebook/change_password/" {% if form_name != "change_password" %} hidden {% endif %}>
+            <form method="post" id="change_password_form" action="/notebook/change_password/" {% if form_name == "change_username" %} hidden {% endif %}>
                 {% csrf_token %}
                 <table id="change_password" class="change_password">
                     <tr>
@@ -53,7 +53,7 @@
                         <td><label for="username">Новый логин</label></td>
                         <td><input type="text" name="new_username" id="username" maxlength="20"></td>
                     </tr>
-                    <tr><td colspan="2"><div class="warning" id="username_warning" {% if not wrong_login_format %} hidden {% endif %}>Не менее 1 и не более 20 символов. Только буквы и цифры.</div></td></tr>
+                    <tr><td colspan="2"><div class="warning" id="username_warning" {% if not wrong_login_format %} hidden {% endif %}>От 5 до 40 символов. Не может начинаться с пробела.</div></td></tr>
                     <tr>
                         <td><label for="password_cu">Пароль</label></td>
                         <td><input type="password" name="password" id="password_cu"></td>

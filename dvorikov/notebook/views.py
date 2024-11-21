@@ -193,8 +193,11 @@ def login_view(request: HttpRequest)-> HttpResponse:
 
 
 def registration_view(request: HttpRequest)-> HttpResponse:
+    if request.user.is_authenticated:
+        return redirect("/notebook/my_tasks/")
     context = dict()
     if request.method == "GET":
+        
         template_name = "notebook/registration.html"
         context = {"registration_form": UserCreationForm()}
         return render(request, template_name, context)
@@ -226,7 +229,6 @@ def change_password_view(request: HttpRequest)->HttpResponse:
 def change_username_view(request: HttpRequest)->HttpResponse:
     template_name = "notebook/account.html"
     context = {"form_name": "change_username"}
-    print(request.POST)
     user = authenticate(username = request.user.username, password = request.POST["password"])
     if user:
         request.user.username = request.POST["new_username"]

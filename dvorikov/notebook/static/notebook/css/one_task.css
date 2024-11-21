@@ -91,7 +91,6 @@ option {
 
 input[type="checkbox"] {
     width: auto;
-    transform: scale(3);
     margin-left: 5%;
 }
 

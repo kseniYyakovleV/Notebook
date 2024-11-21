@@ -6,13 +6,21 @@
     border: 3px solid gray  ;
     border-radius: 10px;
     margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#filter_button {
+    font-size: 300%;
+    
 }
 
 .new_marker_box {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .find {
@@ -23,6 +31,10 @@
     margin-top: 1%;
     margin-left: 5%;
     margin-right: 5%;
+}
+
+tr {
+    position: relative;
 }
 
 .find_input {
@@ -63,7 +75,14 @@ td.completed_task {
 
 td label {
     padding-left: 3%;
+    font-size: 250%;
 }
+
+
+.content {
+    height: 100%;
+}
+
 
 .ahead_task, .current_task, .failed_task, .completed_task {
     border-radius: 10px;
@@ -75,22 +94,25 @@ td label {
     padding: 1%;
     padding-top: 3%;
     padding-bottom: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 a.ahead_task {
-    border: 3px, solid, rgba(0, 0, 255, 0.412);
+    box-shadow: 0 0 0 3px rgba(0, 0, 255, 0.412);
+    
 }
 
 a.current_task {
-    border: 3px, solid, rgb(25, 169, 25);
+    box-shadow: 0 0 0 3px rgb(25, 169, 25);
 }
 
 a.failed_task {
-    border: 3px, solid, red;
+    box-shadow: 0 0 0 3px red;
 }
 
 a.completed_task {
-    border: 3px, solid, rgba(255, 255, 0, 0.523);
+    box-shadow: 0 0 0 3px rgba(255, 255, 0, 0.523);
 }
 
 .text_information {
@@ -105,7 +127,7 @@ a.completed_task {
     overflow: hidden;
     max-width: 100%;
     margin-bottom: 3%;
-    font-size: 115%;
+    font-size: 270%;
 }
 
 .ahead_task .title {
@@ -131,7 +153,7 @@ a.completed_task {
 .deadlines {
     display: flex;
     flex-direction: row;
-    font-size: 80%;
+    font-size: 180%;
 }
 
 .default, .important {
